@@ -1,5 +1,4 @@
 const http = require('http');
-const mongoose = require("mongoose");
 const express = require('express');
 const port = process.env.PORT || 3000;
 const app = express();
@@ -18,7 +17,7 @@ app.get('/simonranking', (req, res) => {
  * Documentation: http://mongoosejs.com/docs/index.html
  * A Mongoose script connecting to a MongoDB database given a MongoDB Connection URI.
  */
-const mongoose = require('mongoose');
+let mongoose = require('mongoose');
 let uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.com:21989/heroku_pmbld7c8';
 mongoose.connect(uri);
 let db = mongoose.connection;
