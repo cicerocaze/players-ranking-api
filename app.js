@@ -26,6 +26,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 console.log("db: ", db);
 
+/*
 db.once('open', function callback() {
     // Create song schema
     let userSchema = mongoose.Schema({
@@ -47,16 +48,16 @@ db.once('open', function callback() {
         name: 'Marcela',
         points: 2
     });
-    /*
-     * First we'll add a few songs. Nothing is required to create the
-     * songs collection; it is created automatically when we insert.
-     */
+    
+    //First we'll add a few songs. Nothing is required to create the
+    //songs collection; it is created automatically when we insert.
+
     let list = [user, user2, user3]
     User.insertMany(list).then(() => {
-        /*
-         * Then we need to give Boyz II Men credit for their contribution
-         * to the hit "One Sweet Day".
-         */
+        
+        //Then we need to give Boyz II Men credit for their contribution
+        //to the hit "One Sweet Day".
+        
         return User.update({
             name: 'One Sweet Day'
         }, {
@@ -65,10 +66,10 @@ db.once('open', function callback() {
             }
         })
     }).then(() => {
-        /*
-         * Finally we run a query which returns all the hits that spend 10 or
-         * more weeks at number 1.
-         */
+        
+        //Finally we run a query which returns all the hits that spend 10 or
+        //more weeks at number 1.
+        
         return User.find({
             name: {
                 $gte: "Cícero"
@@ -93,6 +94,7 @@ db.once('open', function callback() {
         console.log(err)
     })
 });
+*/
 
 app.listen(port, () => {
     console.log(`Example app listening on port !`);
