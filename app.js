@@ -10,13 +10,6 @@ app.get('/simonranking', (req, res) => {
 });
 
 /*
- * Copyright (c) 2017 ObjectLabs Corporation
- * Distributed under the MIT license - http://opensource.org/licenses/MIT
- *
- * Written with: mongoose@5.0.3
- * Documentation: http://mongoosejs.com/docs/index.html
- * A Mongoose script connecting to a MongoDB database given a MongoDB Connection URI.
- */
 let mongoose = require('mongoose');
 let uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.com:21989/heroku_pmbld7c8';
 mongoose.connect(uri);
@@ -25,7 +18,6 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 console.log("db: ", db);
 
-/*
 db.once('open', function callback() {
     // Create song schema
     let userSchema = mongoose.Schema({
