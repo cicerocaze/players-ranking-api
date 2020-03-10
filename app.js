@@ -4,13 +4,6 @@ const express = require('express');
 const port = process.env.PORT || 3000;
 const app = express();
 
-var userSchema = new mongoose.Schema({
-    user: {
-        name: String,
-        points: Number
-    }
-});
-
 app.get('/simonranking', (req, res) => {
     res.send(JSON.stringify({
         Hello: 'World'
@@ -30,6 +23,8 @@ let uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.co
 mongoose.connect(uri);
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
+
+console.log("db: ", db);
 
 db.once('open', function callback() {
     // Create song schema
@@ -79,7 +74,7 @@ db.once('open', function callback() {
                 $gte: "Cícero"
             }
         }).sort({
-            points: 1
+            points: 0
         })
     }).then(docs => {
         docs.forEach(doc => {
