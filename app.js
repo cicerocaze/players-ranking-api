@@ -10,11 +10,10 @@ app.get('/', (req, res) => {
     }));
 });
 
-
 const uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.com:21989/heroku_pmbld7c8';
 mongoose.connect(uri);
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+var MyModel = mongoose.model('Test', new Schema({user: { name: String, points: Number }}));
+MyModel.findOne(function(error, result) { MyModel });
 console.log("db: ", db);
 
 db.once('open', function callback() {
