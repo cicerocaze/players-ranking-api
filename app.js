@@ -1,8 +1,9 @@
-const http = require('http');
 const express = require('express');
-const port = process.env.PORT || 3000;
-const app = express();
+const mongoose = require('mongoose');
 
+
+
+const app = express();
 app.get('/', (req, res) => {
     res.send(JSON.stringify({
         Hello: 'World'
@@ -10,16 +11,12 @@ app.get('/', (req, res) => {
 });
 
 
-let mongoose = require('mongoose');
-let uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.com:21989/heroku_pmbld7c8';
+const uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.com:21989/heroku_pmbld7c8';
 mongoose.connect(uri);
-let db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-
 console.log("db: ", db);
 
-
-/*
 db.once('open', function callback() {
     // Create song schema
     let userSchema = mongoose.Schema({
@@ -87,8 +84,8 @@ db.once('open', function callback() {
         console.log(err)
     })
 });
-*/
 
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Example app listening on port !`);
 });
