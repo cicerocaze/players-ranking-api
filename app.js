@@ -13,6 +13,7 @@ app.get('/', (req, res) => {
 const uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.com:21989/heroku_pmbld7c8';
 mongoose.connect(uri);
 
+/*
 db.once('open', function callback() {
     // Create song schema
     let userSchema = mongoose.Schema({
@@ -80,6 +81,7 @@ db.once('open', function callback() {
         console.log(err)
     })
 });
+*/
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
