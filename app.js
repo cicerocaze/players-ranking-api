@@ -11,10 +11,9 @@ app.get('/', (req, res) => {
 });
 
 const uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.com:21989/heroku_pmbld7c8';
-mongoose.connect(uri);
-var MyModel = mongoose.model('Test', new Schema({user: { name: String, points: Number }}));
-MyModel.findOne(function(error, result) { result });
-console.log("db: ", db);
+mongoose.connect(uri).then( result => {
+    console.log("Mongoose.connect, Result: ", result)
+});
 
 db.once('open', function callback() {
     // Create song schema
