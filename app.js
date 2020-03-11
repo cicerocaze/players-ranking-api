@@ -1,17 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-
+const uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.com:21989/heroku_pmbld7c8';
+mongoose.connect(uri);
 
 const app = express();
 app.get('/', (req, res) => {
     res.send(JSON.stringify({
-        Hello: 'World'
+        name: 'Cícero',
+        points: 10
     }));
 });
-
-const uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.com:21989/heroku_pmbld7c8';
-mongoose.connect(uri);
 
 /*
 db.once('open', function callback() {
