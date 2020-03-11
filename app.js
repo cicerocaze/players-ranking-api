@@ -11,12 +11,12 @@ app.get('/', (req, res) => {
 
 
 let mongoose = require('mongoose');
-let uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.com:21989/heroku_pmbld7c8';
-mongoose.connect(uri);
-let db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+//let uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.com:21989/heroku_pmbld7c8';
+//mongoose.connect(uri);
+//let db = mongoose.connection;
+//db.on('error', console.error.bind(console, 'connection error:'));
 
-console.log("db: ", db);
+console.log("mongoose: ", mongoose);
 
 
 /*
