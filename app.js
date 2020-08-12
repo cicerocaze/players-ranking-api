@@ -2,14 +2,28 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const uri = 'mongodb://heroku_pmbld7c8:ckio9obg6pgmmgbao9156rn9qr@ds021989.mlab.com:21989/heroku_pmbld7c8';
-mongoose.connect(uri);
+mongoose.connect(uri, {useNewUrlParser:true})
+.then(success => console.log('Connected to Mongo: ', success))
+.catch(error => console.log('Error when trying to connected to Mongo: ', error))
 
 const app = express();
-app.get('/', (req, res) => {
+app.get('/:gameId', (req, res) => {
+  if(req.params.gameId === '1'){
     res.send(JSON.stringify({
-        name: 'Cícero',
-        points: 10
+        gameId: '1',
+        gameName: 'Simon Brain',
+        userName: 'Cícero',
+        userPoints: '9'
     }));
+  }
+  if(req.params.gameId === '2'){
+    res.send(JSON.stringify({
+        gameId: '2',
+        gameName: 'Music Brain',
+        userName: 'Cícero',
+        userPoints: '3'
+    }));
+  }
 });
 
 /*
@@ -84,5 +98,5 @@ db.once('open', function callback() {
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log(`Example app listening on port !`);
+    console.log(`Example app listening on http://localhost:${port}`);
 });
