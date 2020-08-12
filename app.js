@@ -12,17 +12,20 @@ app.get('/:gameId', (req, res) => {
     res.send(JSON.stringify({
         gameId: '1',
         gameName: 'Simon Brain',
+        gameVersion: '0.0.1',
         userName: 'Cícero',
         userPoints: '9'
     }));
-  }
-  if(req.params.gameId === '2'){
+  } else if(req.params.gameId === '2'){
     res.send(JSON.stringify({
         gameId: '2',
         gameName: 'Music Brain',
+        gameVersion: '0.0.1',
         userName: 'Cícero',
         userPoints: '3'
     }));
+  } else {
+    res.send('This is not a valid game!');
   }
 });
 
